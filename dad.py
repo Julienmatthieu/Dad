@@ -31,7 +31,7 @@ async def on_message(message):
         response = session.get('https://www.blagues-api.fr/api/random')
         if response.status_code == 200:
             content = json.loads(response.content)
-            text = f"AH des blagues ! J'en connais plein ! \n {content['joke']} \n {content['answer']}\n🤣🤣🤣🤣🤣🤣"
+            text = f"AH! Des blagues! J'en connais plein ! \n {content['joke']} \n {content['answer']}\n🤣🤣🤣🤣🤣🤣"
             await message.channel.send(text)
 
 # Run bot (arg is the bot token)
