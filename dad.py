@@ -31,8 +31,8 @@ async def on_message(message):
         session.headers.update({'Authorization': f'Bearer {keys.token_joke}'})
         response = session.get('https://www.blagues-api.fr/api/random')
         if response.status_code == 200:
-            content = json.loads(response.content)  
+            content = json.loads(response.content)
             message = f"AH des blagues ! J'en connais plein ! \n {content['joke']} \n {content['answer']}\n🤣🤣🤣🤣🤣🤣"
-    
+
 # Run bot (arg is the bot token)
 client.run(keys.token)
