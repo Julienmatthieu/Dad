@@ -1,5 +1,3 @@
-from _typeshed import OpenTextModeReading
-from requests.models import ContentDecodingError
 import discord
 import requests
 import json
