@@ -1,3 +1,4 @@
+from _typeshed import OpenTextModeReading
 from requests.models import ContentDecodingError
 import discord
 import requests
@@ -25,11 +26,14 @@ async def on_message(message):
             await message.channel.send('T\'es un marrant toi. Je t\'aime bien. Tu serais pas papa aussi ?')
             return
         await message.channel.send('Bonjour' + name + '. Je suis papa !')
+    print("here")
     index=message.content.lower().find('blague')
+    print(index)
     if index > -1:
         session = requests.Session()
         session.headers.update({'Authorization': f'Bearer {keys.token_joke}'})
         response = session.get('https://www.blagues-api.fr/api/random')
+        print(response)
         if response.status_code == 200:
             content = json.loads(response.content)
             message = f"AH des blagues ! J'en connais plein ! \n {content['joke']} \n {content['answer']}\n🤣🤣🤣🤣🤣🤣"
